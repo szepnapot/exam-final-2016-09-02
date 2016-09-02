@@ -25,3 +25,19 @@ const cars = [{
     type: 'Trabant'
 }];
 
+function countColors(arr){
+  'use strict';
+  let output = {};
+  arr.forEach((e) => output[e.color] = (output[e.color] || 0) + 1);
+  return output;
+}
+
+console.log(countColors(cars));
+
+function reducer(output, current){
+  'use strict';
+  output[current.color] = (output[current.color] || 0) + 1;
+  return output;
+}
+
+console.log(cars.reduce(reducer, {}));
